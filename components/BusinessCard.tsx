@@ -27,9 +27,9 @@ export default function BusinessCard({
         boxShadow: "none",
       }}
     >
-      {/* 4px Sub-brand Color Tab */}
+      {/* 4px Sub-brand Color Tab: Understated thin accent tab (not full-width banner) */}
       <div
-        className="w-full h-1 shrink-0"
+        className="w-16 h-1 shrink-0"
         style={{ backgroundColor: business.brandColor }}
       />
 
@@ -38,7 +38,7 @@ export default function BusinessCard({
           isWide ? "lg:flex-row lg:gap-8" : ""
         }`}
       >
-        {/* Image & Logo Showcase Container */}
+        {/* Duotone Image Container */}
         <div
           className={`relative bg-ink-navy/5 border border-hairline overflow-hidden rounded-sharp mb-6 shrink-0 transition-colors group-hover:border-antique-gold/40 ${
             isWide
@@ -47,28 +47,19 @@ export default function BusinessCard({
           }`}
         >
           {business.banner && !imageError ? (
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full bg-ink-navy">
               <Image
                 src={business.banner}
                 alt={business.name}
                 fill
-                className="object-cover contrast-105 brightness-95 group-hover:scale-105 transition-all duration-500"
+                className="object-cover filter grayscale contrast-125 brightness-90 transition-all duration-300 group-hover:filter-none group-hover:contrast-100 group-hover:brightness-100"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 onError={() => setImageError(true)}
               />
-              {/* Subtle Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-ink-navy/70 via-transparent to-transparent pointer-events-none" />
-
-              {/* Official App Logo Icon Badge */}
-              <div className="absolute top-3 left-3 w-11 h-11 rounded-sharp overflow-hidden shadow-lg border border-white/20 bg-white p-0.5">
-                <Image
-                  src={business.logo}
-                  alt={`${business.name} logo`}
-                  width={40}
-                  height={40}
-                  className="w-full h-full object-cover rounded-[2px]"
-                />
-              </div>
+              {/* Navy Duotone Overlay at rest: fades out on hover over 300ms */}
+              <div className="absolute inset-0 bg-ink-navy/60 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-0 pointer-events-none" />
+              {/* Subtle unifying tint */}
+              <div className="absolute inset-0 bg-ink-navy/5 pointer-events-none mix-blend-multiply" />
             </div>
           ) : (
             /* Fallback when image is missing or loading */

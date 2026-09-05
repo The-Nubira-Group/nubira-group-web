@@ -7,7 +7,6 @@ import Section from "@/components/Section";
 import Button from "@/components/Button";
 import StatBlock from "@/components/StatBlock";
 import BusinessCard from "@/components/BusinessCard";
-import HomeHeroSlider from "@/components/HomeHeroSlider";
 import { BUSINESSES } from "@/lib/businesses";
 
 export default function HomePage() {
@@ -26,8 +25,84 @@ export default function HomePage() {
       {/* Global Navbar (transparent-dark for Navy hero) */}
       <Navbar themeVariant="transparent-dark" />
 
-      {/* SECTION 1: FULL-BLEED MOVING HERO BANNER SLIDER */}
-      <HomeHeroSlider />
+      {/* SECTION 1: HERO (Option (b) — Plain Navy with thin gold geometric line motif per docs/02-HOME.md) */}
+      <section className="relative bg-ink-navy text-paper-ivory min-h-[720px] lg:min-h-[800px] flex items-center pt-28 lg:pt-36 pb-24 overflow-hidden border-b border-hairline/20">
+        {/* Subtle Architectural Gold Line Motif (Structural blueprint/geometric hairlines, 25% opacity) */}
+        <div className="absolute inset-0 pointer-events-none opacity-25 overflow-hidden">
+          <svg
+            className="w-full h-full"
+            viewBox="0 0 1440 900"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M-100 900L500 0M300 900L900 0M700 900L1300 0M1100 900L1700 0"
+              stroke="#B9873E"
+              strokeWidth="0.75"
+              strokeDasharray="4 8"
+            />
+            <circle
+              cx="720"
+              cy="450"
+              r="360"
+              stroke="#B9873E"
+              strokeWidth="0.5"
+              strokeOpacity="0.4"
+            />
+            <circle
+              cx="720"
+              cy="450"
+              r="180"
+              stroke="#B9873E"
+              strokeWidth="0.5"
+              strokeOpacity="0.25"
+            />
+          </svg>
+        </div>
+
+        <div className="max-w-container mx-auto px-5 md:px-12 lg:px-24 w-full relative z-10">
+          <div className="max-w-3xl">
+            {/* Tagline / Eyebrow */}
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-8 h-[1px] bg-antique-gold" />
+              <p className="font-mono text-xs uppercase tracking-mono text-antique-gold font-medium">
+                One group, five industries
+              </p>
+            </div>
+
+            {/* Display XL Headline: 2 lines (Line 1 Ivory, Line 2 Gold) */}
+            <h1 className="font-fraunces text-4xl sm:text-6xl lg:text-7xl font-medium tracking-tightest leading-[1.08] mb-8 text-paper-ivory">
+              FROM COMMERCE <br />
+              <span className="text-antique-gold">TO CRAFT.</span>
+            </h1>
+
+            {/* Subhead: Body Large (Ivory 85%, max 560px) */}
+            <p className="font-inter text-base sm:text-lg lg:text-xl text-paper-ivory/85 max-w-[560px] leading-relaxed mb-10">
+              Nubira Group builds and operates platforms across trade, mobility,
+              manufacturing technology, and fashion — five businesses, one
+              standard of execution.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
+              <Button href="#our-businesses" variant="secondary-dark" size="lg">
+                Explore our businesses
+              </Button>
+
+              <Link
+                href="/about"
+                className="font-inter text-[15px] font-medium text-paper-ivory/90 hover:text-antique-gold flex items-center justify-center sm:justify-start gap-2 py-3 transition-colors group"
+              >
+                <span>About the group</span>
+                <ArrowRight
+                  className="w-4 h-4 text-antique-gold group-hover:translate-x-1 transition-transform"
+                  strokeWidth={1.5}
+                />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 2: GROUP STAT STRIP (Transition between Navy & Ivory) */}
       <section className="relative bg-paper-ivory -mt-8 lg:-mt-12 z-20">

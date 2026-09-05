@@ -87,35 +87,26 @@ export default function BusinessesIndexPage() {
                       }`}
                     >
                       <div className="relative bg-ink-navy/5 border border-hairline rounded-sharp overflow-hidden shadow-none group">
-                        {/* 4px Sub-brand Color Tab on Top of Image */}
+                        {/* 4px Sub-brand Color Tab: Understated thin accent line */}
                         <div
-                          className="w-full h-1"
+                          className="w-16 h-1"
                           style={{ backgroundColor: business.brandColor }}
                         />
 
-                        {/* Image Frame */}
-                        <div className="relative aspect-[16/10] w-full bg-paper-ivory overflow-hidden">
+                        {/* Duotone Image Frame */}
+                        <div className="relative aspect-[16/10] w-full bg-ink-navy overflow-hidden">
                           {business.banner ? (
                             <div className="relative w-full h-full">
                               <Image
                                 src={business.banner}
                                 alt={business.name}
                                 fill
-                                className="object-cover contrast-105 brightness-95 group-hover:scale-105 transition-all duration-500"
+                                className="object-cover filter grayscale contrast-125 brightness-90 transition-all duration-300 group-hover:filter-none group-hover:contrast-100 group-hover:brightness-100"
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                               />
-                              <div className="absolute inset-0 bg-gradient-to-t from-ink-navy/60 via-transparent to-transparent pointer-events-none" />
-
-                              {/* Official App Logo Icon Badge */}
-                              <div className="absolute top-3 left-3 w-12 h-12 rounded-sharp overflow-hidden shadow-lg border border-white/20 bg-white p-0.5">
-                                <Image
-                                  src={business.logo}
-                                  alt={`${business.name} logo`}
-                                  width={48}
-                                  height={48}
-                                  className="w-full h-full object-cover rounded-[2px]"
-                                />
-                              </div>
+                              {/* Navy Duotone Overlay at rest: fades out on hover over 300ms */}
+                              <div className="absolute inset-0 bg-ink-navy/60 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-0 pointer-events-none" />
+                              <div className="absolute inset-0 bg-ink-navy/5 pointer-events-none mix-blend-multiply" />
                             </div>
                           ) : null}
                         </div>
