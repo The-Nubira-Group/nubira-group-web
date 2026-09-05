@@ -31,15 +31,15 @@ export default function StatBlock({
           className="p-6 md:p-8 flex flex-col items-start justify-center"
         >
           <span
-            className={`font-mono text-3xl md:text-4xl font-medium tracking-tight mb-2 leading-none ${
+            className={`font-inter text-3xl md:text-4xl font-semibold tracking-tight mb-2 leading-none ${
               isDark ? "text-antique-gold" : "text-ink-navy"
             }`}
           >
             {stat.numeral}
           </span>
           <span
-            className={`font-mono text-xs uppercase tracking-mono leading-tight ${
-              isDark ? "text-paper-ivory/70" : "text-slate"
+            className={`font-mono text-xs uppercase tracking-mono leading-tight font-medium ${
+              isDark ? "text-paper-ivory/80" : "text-charcoal"
             }`}
           >
             {stat.label}
@@ -47,7 +47,7 @@ export default function StatBlock({
           {stat.sublabel ? (
             <span
               className={`font-mono text-[11px] uppercase tracking-mono mt-0.5 ${
-                isDark ? "text-paper-ivory/50" : "text-slate/70"
+                isDark ? "text-paper-ivory/60" : "text-slate"
               }`}
             >
               {stat.sublabel}

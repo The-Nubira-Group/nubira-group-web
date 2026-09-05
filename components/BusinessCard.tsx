@@ -38,38 +38,49 @@ export default function BusinessCard({
           isWide ? "lg:flex-row lg:gap-8" : ""
         }`}
       >
-        {/* Screenshot Image Container */}
+        {/* Image & Logo Showcase Container */}
         <div
           className={`relative bg-ink-navy/5 border border-hairline overflow-hidden rounded-sharp mb-6 shrink-0 transition-colors group-hover:border-antique-gold/40 ${
             isWide
-              ? "w-full lg:w-1/2 h-52 lg:h-full lg:mb-0 min-h-[180px]"
+              ? "w-full lg:w-1/2 h-52 lg:h-full lg:mb-0 min-h-[190px]"
               : "w-full h-48 sm:h-52"
           }`}
         >
-          {business.screenshot && !imageError ? (
+          {business.banner && !imageError ? (
             <div className="relative w-full h-full">
               <Image
-                src={business.screenshot}
-                alt={business.screenshotCaption || business.name}
+                src={business.banner}
+                alt={business.name}
                 fill
-                className="object-cover grayscale contrast-125 brightness-95 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-300"
+                className="object-cover contrast-105 brightness-95 group-hover:scale-105 transition-all duration-500"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 onError={() => setImageError(true)}
               />
-              {/* Subtle Navy 4% overlay */}
-              <div className="absolute inset-0 bg-ink-navy/4 pointer-events-none mix-blend-multiply group-hover:opacity-0 transition-opacity" />
-            </div>
-          ) : null}
+              {/* Subtle Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-navy/70 via-transparent to-transparent pointer-events-none" />
 
-          {/* Fallback Monogram when image is missing or loading */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center pointer-events-none">
-            <span className="font-fraunces text-2xl text-slate/40 uppercase tracking-widest font-medium">
-              {business.name}
-            </span>
-            <span className="font-mono text-[11px] text-slate/50 mt-1 uppercase tracking-wider">
-              {business.categoryShort}
-            </span>
-          </div>
+              {/* Official App Logo Icon Badge */}
+              <div className="absolute top-3 left-3 w-11 h-11 rounded-sharp overflow-hidden shadow-lg border border-white/20 bg-white p-0.5">
+                <Image
+                  src={business.logo}
+                  alt={`${business.name} logo`}
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover rounded-[2px]"
+                />
+              </div>
+            </div>
+          ) : (
+            /* Fallback when image is missing or loading */
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center bg-ink-navy/5">
+              <span className="font-fraunces text-2xl text-ink-navy/70 uppercase tracking-widest font-medium">
+                {business.name}
+              </span>
+              <span className="font-mono text-[11px] text-antique-gold mt-1 uppercase tracking-wider">
+                {business.categoryShort}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Content Details */}
@@ -77,7 +88,7 @@ export default function BusinessCard({
           <div>
             {/* Category Label (mono, uppercase, slate) */}
             <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="font-mono text-xs uppercase tracking-mono text-slate">
+              <span className="font-mono text-xs uppercase tracking-mono text-antique-gold font-medium">
                 {business.categoryShort}
               </span>
               <a
@@ -85,7 +96,7 @@ export default function BusinessCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Visit ${business.name} external website (opens in new tab)`}
-                className="text-slate/60 hover:text-antique-gold transition-colors inline-flex items-center text-xs"
+                className="text-slate/70 hover:text-antique-gold transition-colors inline-flex items-center text-xs"
                 title={`Visit ${business.name} ↗`}
               >
                 <ExternalLink className="w-3.5 h-3.5" strokeWidth={1.5} />
@@ -93,7 +104,7 @@ export default function BusinessCard({
             </div>
 
             {/* Business Name (H4, Inter 600) */}
-            <h4 className="font-inter text-lg font-semibold text-ink-navy mb-2.5 leading-snug group-hover:text-antique-gold transition-colors">
+            <h4 className="font-inter text-lg font-semibold text-ink-navy mb-2.5 leading-snug group-hover:text-antique-gold transition-colors flex items-center gap-2">
               <Link href={`/businesses/${business.slug}`}>
                 {business.name}
               </Link>

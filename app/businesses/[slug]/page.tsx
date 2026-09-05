@@ -110,20 +110,32 @@ export default async function BusinessDetailPage({ params }: PageProps) {
             )}
 
             {/* Eyebrow: mono, gold, uppercase */}
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2.5 mb-4">
               <span
-                className="w-2 h-2 rounded-none inline-block"
+                className="w-2.5 h-2.5 rounded-none inline-block"
                 style={{ backgroundColor: business.brandColor }}
               />
               <span className="font-mono text-xs uppercase tracking-mono text-antique-gold font-medium">
-                ▸ {business.categoryShort}
+                {business.categoryShort}
               </span>
             </div>
 
-            {/* Business H1: Fraunces serif */}
-            <h1 className="font-fraunces text-4xl sm:text-5xl lg:text-6xl font-medium text-ink-navy mb-4 leading-tight">
-              {business.name}
-            </h1>
+            {/* Business H1: Official App Logo + Fraunces serif */}
+            <div className="flex items-center gap-4 sm:gap-6 mb-4">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-sharp overflow-hidden border border-hairline shadow-md bg-white shrink-0">
+                <Image
+                  src={business.logo}
+                  alt={`${business.name} logo`}
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
+              <h1 className="font-fraunces text-4xl sm:text-5xl lg:text-6xl font-medium text-ink-navy leading-tight">
+                {business.name}
+              </h1>
+            </div>
 
             {/* Subhead: Body Large, one sentence positioning */}
             <p className="font-inter text-lg sm:text-xl text-slate mb-8 leading-relaxed font-normal">
@@ -181,15 +193,6 @@ export default async function BusinessDetailPage({ params }: PageProps) {
                     />
                   </div>
                 ) : null}
-
-                <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none -z-10 p-6 text-center">
-                  <span className="font-fraunces text-4xl text-slate/30 uppercase tracking-widest font-medium">
-                    {business.name}
-                  </span>
-                  <span className="font-mono text-xs text-slate/40 mt-1 uppercase tracking-wider">
-                    {business.categoryShort}
-                  </span>
-                </div>
               </div>
 
               {/* Caption in mono/slate */}
@@ -292,8 +295,8 @@ export default async function BusinessDetailPage({ params }: PageProps) {
                     </div>
 
                     <div className="pt-6 mt-6 border-t border-hairline/60">
-                      <span className="font-mono text-[11px] uppercase tracking-mono text-slate">
-                        Verified Use Case
+                      <span className="font-mono text-[11px] uppercase tracking-mono text-antique-gold font-medium">
+                        Target Segment Profile
                       </span>
                     </div>
                   </div>

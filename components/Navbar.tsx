@@ -213,58 +213,44 @@ export default function Navbar({ themeVariant = "transparent-dark" }: NavbarProp
                   key={business.id}
                   href={`/businesses/${business.slug}`}
                   onClick={() => setIsMegaOpen(false)}
-                  className="group flex flex-col p-4 rounded-sharp border border-transparent hover:border-hairline hover:bg-paper-ivory/50 transition-all duration-200"
+                  className="group flex flex-col p-4 rounded-sharp border border-hairline/60 hover:border-antique-gold hover:bg-white/60 transition-all duration-200"
                 >
                   {/* 4px Sub-brand Color Tab */}
                   <div
-                    className="w-full h-1 mb-4 rounded-none"
+                    className="w-full h-1 mb-4"
                     style={{ backgroundColor: business.brandColor }}
                   />
 
-                  {/* Business Name */}
-                  <h4 className="font-inter text-base font-semibold text-ink-navy mb-1 group-hover:text-antique-gold transition-colors">
-                    {business.name}
-                  </h4>
-
-                  {/* Category Label */}
-                  <p className="font-mono text-[11px] uppercase tracking-wide text-slate mb-2">
-                    {business.categoryShort}
-                  </p>
-
-                  {/* 1-line description */}
-                  <p className="font-inter text-[13px] text-slate line-clamp-2 leading-snug mb-4 flex-grow">
-                    {business.shortDescription}
-                  </p>
-
-                  {/* Duotone Thumbnail container (120x80) */}
-                  <div className="w-full h-20 relative bg-ink-navy/5 border border-hairline overflow-hidden rounded-sharp mb-3 group-hover:border-antique-gold transition-colors">
-                    {business.screenshot ? (
-                      <div className="relative w-full h-full">
-                        <Image
-                          src={business.screenshot}
-                          alt={business.name}
-                          fill
-                          className="object-cover grayscale contrast-125 brightness-95 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-300"
-                          sizes="180px"
-                          onError={(e) => {
-                            // Fallback hiding on missing image
-                            (e.target as HTMLElement).style.display = "none";
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-ink-navy/10 pointer-events-none mix-blend-multiply group-hover:opacity-0 transition-opacity" />
-                      </div>
-                    ) : null}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-10">
-                      <span className="font-mono text-[10px] text-slate/50">
+                  {/* Header: Logo Icon + Name */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-sharp overflow-hidden border border-hairline bg-white shadow-sm shrink-0">
+                      <Image
+                        src={business.logo}
+                        alt={business.name}
+                        width={36}
+                        height={36}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="font-inter text-sm font-semibold text-ink-navy truncate group-hover:text-antique-gold transition-colors">
                         {business.name}
-                      </span>
+                      </h4>
+                      <p className="font-mono text-[10px] uppercase tracking-wide text-antique-gold font-medium truncate">
+                        {business.categoryShort}
+                      </p>
                     </div>
                   </div>
 
+                  {/* 2-line description */}
+                  <p className="font-inter text-[12px] text-slate line-clamp-2 leading-relaxed mb-4 flex-grow">
+                    {business.shortDescription}
+                  </p>
+
                   {/* View Business link */}
-                  <span className="font-inter text-[13px] font-medium text-antique-gold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                  <span className="font-inter text-[12px] font-medium text-antique-gold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                     <span>View business</span>
-                    <ArrowRight className="w-3.5 h-3.5" strokeWidth={1.5} />
+                    <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
                   </span>
                 </Link>
               ))}
@@ -343,16 +329,21 @@ export default function Navbar({ themeVariant = "transparent-dark" }: NavbarProp
                         key={b.id}
                         href={`/businesses/${b.slug}`}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className={`font-inter text-base transition-colors flex items-center gap-2 py-1 ${
+                        className={`font-inter text-base transition-colors flex items-center gap-3 py-1 ${
                           pathname === `/businesses/${b.slug}`
-                            ? "text-antique-gold"
-                            : "text-slate hover:text-paper-ivory"
+                            ? "text-antique-gold font-semibold"
+                            : "text-paper-ivory/85 hover:text-antique-gold"
                         }`}
                       >
-                        <span
-                          className="w-2 h-2 rounded-full inline-block"
-                          style={{ backgroundColor: b.brandColor }}
-                        />
+                        <div className="w-5 h-5 rounded-sharp overflow-hidden border border-white/20 bg-white shrink-0">
+                          <Image
+                            src={b.logo}
+                            alt={b.name}
+                            width={20}
+                            height={20}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
                         <span>{b.name}</span>
                       </Link>
                     ))}

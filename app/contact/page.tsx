@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Building, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
+import FaqAccordion from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
   title: "Contact — Nubira Group",
@@ -87,14 +88,14 @@ export default function ContactPage() {
                   Headquarters &amp; Registry
                 </span>
                 <h2 className="font-fraunces text-2xl sm:text-3xl font-medium text-ink-navy mb-6">
-                  Office &amp; Directory
+                  Office and Directory
                 </h2>
               </div>
 
               {/* Office Address Card */}
-              <div className="p-6 bg-white/70 border border-hairline rounded-sharp space-y-4">
+              <div className="p-6 sm:p-7 bg-white border border-hairline rounded-sharp shadow-sm space-y-5">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-8 h-8 rounded-sharp bg-ink-navy/5 border border-hairline flex items-center justify-center text-antique-gold shrink-0 mt-0.5">
+                  <div className="w-9 h-9 rounded-sharp bg-ink-navy/5 border border-hairline flex items-center justify-center text-antique-gold shrink-0 mt-0.5">
                     <Building className="w-4 h-4" strokeWidth={1.5} />
                   </div>
                   <div>
@@ -109,14 +110,14 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="border-t border-hairline/60 pt-4 space-y-3">
+                <div className="border-t border-hairline/60 pt-4 space-y-3.5">
                   <div className="flex items-center gap-3">
                     <Mail className="w-4 h-4 text-antique-gold shrink-0" strokeWidth={1.5} />
                     <div className="text-xs sm:text-sm font-inter">
                       <span className="text-slate font-mono text-xs block">General Inquiries:</span>
                       <a
                         href="mailto:contact@nubiragroup.com"
-                        className="text-ink-navy hover:text-antique-gold transition-colors"
+                        className="text-ink-navy hover:text-antique-gold font-medium transition-colors"
                       >
                         contact@nubiragroup.com
                       </a>
@@ -129,7 +130,7 @@ export default function ContactPage() {
                       <span className="text-slate font-mono text-xs block">Press &amp; Institutional:</span>
                       <a
                         href="mailto:press@nubiragroup.com"
-                        className="text-ink-navy hover:text-antique-gold transition-colors"
+                        className="text-ink-navy hover:text-antique-gold font-medium transition-colors"
                       >
                         press@nubiragroup.com
                       </a>
@@ -142,7 +143,7 @@ export default function ContactPage() {
                       <span className="text-slate font-mono text-xs block">Talent &amp; Operations:</span>
                       <a
                         href="mailto:careers@nubiragroup.com"
-                        className="text-ink-navy hover:text-antique-gold transition-colors"
+                        className="text-ink-navy hover:text-antique-gold font-medium transition-colors"
                       >
                         careers@nubiragroup.com
                       </a>
@@ -151,16 +152,34 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Framed Map Container */}
-              <div className="border border-hairline rounded-sharp p-4 bg-white/70">
-                <div className="aspect-[16/9] w-full bg-ink-navy/5 border border-hairline rounded-sharp relative overflow-hidden flex flex-col items-center justify-center p-6 text-center">
-                  <MapPin className="w-8 h-8 text-antique-gold mb-2" strokeWidth={1.5} />
-                  <p className="font-mono text-xs uppercase tracking-mono text-ink-navy font-medium">
-                    Kolkata Operational Hub
+              {/* Styled Regional Operational Hub Card */}
+              <div className="border border-hairline rounded-sharp p-6 bg-white shadow-sm space-y-4">
+                <div className="flex items-center justify-between border-b border-hairline/60 pb-3">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-antique-gold" strokeWidth={1.5} />
+                    <span className="font-mono text-xs uppercase tracking-mono text-ink-navy font-semibold">
+                      Eastern India Operations Hub
+                    </span>
+                  </div>
+                  <span className="font-mono text-[11px] text-antique-gold font-medium">
+                    22.5726° N, 88.3639° E
+                  </span>
+                </div>
+
+                <div className="space-y-2.5 text-xs font-inter text-slate">
+                  <p className="leading-relaxed text-charcoal/80">
+                    <strong className="text-ink-navy font-medium">Centralized Logistics &amp; Manufacturing Administration:</strong> Managing regional freight corridors, vendor fulfillment centers, and factory operations across West Bengal, Bihar, and Eastern industrial clusters.
                   </p>
-                  <p className="font-mono text-[11px] text-slate mt-1">
-                    Direct ground presence across regional manufacturing clusters
-                  </p>
+                  <div className="grid grid-cols-2 gap-2 pt-2 font-mono text-[11px] text-slate/90">
+                    <div className="bg-paper-ivory/60 p-2.5 rounded-sharp border border-hairline/60">
+                      <span className="block text-antique-gold font-bold">10,000+</span>
+                      <span>Pin Codes Serviced</span>
+                    </div>
+                    <div className="bg-paper-ivory/60 p-2.5 rounded-sharp border border-hairline/60">
+                      <span className="block text-antique-gold font-bold">24–48h</span>
+                      <span>Dispatch Window</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -184,18 +203,8 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="max-w-3xl divide-y divide-hairline border-y border-hairline">
-              {faqs.map((faq, idx) => (
-                <div key={idx} className="py-6">
-                  <h4 className="font-inter text-base sm:text-lg font-semibold text-ink-navy mb-2 flex items-start gap-2">
-                    <span className="text-antique-gold font-mono text-xs mt-1">0{idx + 1}.</span>
-                    <span>{faq.q}</span>
-                  </h4>
-                  <p className="font-inter text-sm sm:text-base text-slate leading-relaxed pl-6">
-                    {faq.a}
-                  </p>
-                </div>
-              ))}
+            <div className="max-w-3xl">
+              <FaqAccordion items={faqs} />
             </div>
           </div>
         </section>

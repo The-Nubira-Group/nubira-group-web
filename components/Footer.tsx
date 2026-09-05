@@ -145,14 +145,20 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <span className="font-inter text-[15px] text-paper-ivory/40 cursor-default">
-                  Careers (Phase 2)
-                </span>
+                <Link
+                  href="/contact?dept=careers"
+                  className="font-inter text-[15px] text-paper-ivory/80 hover:text-paper-ivory hover:underline underline-offset-4 decoration-antique-gold decoration-1 transition-all"
+                >
+                  Careers
+                </Link>
               </li>
               <li>
-                <span className="font-inter text-[15px] text-paper-ivory/40 cursor-default">
-                  Press / Media (Phase 2)
-                </span>
+                <Link
+                  href="/contact?dept=press"
+                  className="font-inter text-[15px] text-paper-ivory/80 hover:text-paper-ivory hover:underline underline-offset-4 decoration-antique-gold decoration-1 transition-all"
+                >
+                  Press & Media
+                </Link>
               </li>
             </ul>
           </div>
@@ -187,22 +193,22 @@ export default function Footer() {
               }`}
             >
               <div>
-                <p className="font-medium text-paper-ivory text-xs font-mono uppercase tracking-wide text-slate mb-1">
+                <p className="font-medium text-antique-gold text-xs font-mono uppercase tracking-wide mb-1">
                   Corporate Office
                 </p>
                 <p>The Nubira Group</p>
-                <p className="text-paper-ivory/60 text-xs">
+                <p className="text-paper-ivory/70 text-xs">
                   Kolkata / West Bengal, India
                 </p>
               </div>
 
               <div className="pt-2">
-                <p className="font-medium text-paper-ivory text-xs font-mono uppercase tracking-wide text-slate mb-1">
+                <p className="font-medium text-antique-gold text-xs font-mono uppercase tracking-wide mb-1">
                   Direct Inquiries
                 </p>
                 <a
                   href="mailto:contact@nubiragroup.com"
-                  className="hover:text-antique-gold transition-colors block text-xs"
+                  className="hover:text-antique-gold transition-colors block text-xs text-paper-ivory/90"
                 >
                   contact@nubiragroup.com
                 </a>

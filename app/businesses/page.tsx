@@ -95,29 +95,29 @@ export default function BusinessesIndexPage() {
 
                         {/* Image Frame */}
                         <div className="relative aspect-[16/10] w-full bg-paper-ivory overflow-hidden">
-                          {business.screenshot ? (
+                          {business.banner ? (
                             <div className="relative w-full h-full">
                               <Image
-                                src={business.screenshot}
-                                alt={
-                                  business.screenshotCaption || business.name
-                                }
+                                src={business.banner}
+                                alt={business.name}
                                 fill
-                                className="object-cover grayscale contrast-125 brightness-95 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-300"
+                                className="object-cover contrast-105 brightness-95 group-hover:scale-105 transition-all duration-500"
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                               />
-                              <div className="absolute inset-0 bg-ink-navy/4 pointer-events-none mix-blend-multiply group-hover:opacity-0 transition-opacity" />
+                              <div className="absolute inset-0 bg-gradient-to-t from-ink-navy/60 via-transparent to-transparent pointer-events-none" />
+
+                              {/* Official App Logo Icon Badge */}
+                              <div className="absolute top-3 left-3 w-12 h-12 rounded-sharp overflow-hidden shadow-lg border border-white/20 bg-white p-0.5">
+                                <Image
+                                  src={business.logo}
+                                  alt={`${business.name} logo`}
+                                  width={48}
+                                  height={48}
+                                  className="w-full h-full object-cover rounded-[2px]"
+                                />
+                              </div>
                             </div>
                           ) : null}
-
-                          <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none -z-10 p-6 text-center">
-                            <span className="font-fraunces text-3xl text-slate/30 uppercase tracking-widest font-medium">
-                              {business.name}
-                            </span>
-                            <span className="font-mono text-xs text-slate/40 mt-1 uppercase tracking-wider">
-                              {business.categoryShort}
-                            </span>
-                          </div>
                         </div>
 
                         {/* Screenshot Caption below in mono */}
@@ -148,7 +148,7 @@ export default function BusinessesIndexPage() {
                       {/* Category Label */}
                       <div className="flex items-center gap-2 mb-2">
                         <span
-                          className="w-2 h-2 rounded-none inline-block"
+                          className="w-2.5 h-2.5 rounded-none inline-block"
                           style={{ backgroundColor: business.brandColor }}
                         />
                         <span className="font-mono text-xs uppercase tracking-mono text-antique-gold font-medium">
@@ -156,10 +156,21 @@ export default function BusinessesIndexPage() {
                         </span>
                       </div>
 
-                      {/* Business Name */}
-                      <h2 className="font-fraunces text-2xl sm:text-3xl lg:text-4xl font-medium text-ink-navy mb-3">
-                        {business.name}
-                      </h2>
+                      {/* Business Name with App Logo */}
+                      <div className="flex items-center gap-3.5 mb-3">
+                        <div className="w-9 h-9 rounded-sharp overflow-hidden border border-hairline shadow-sm bg-white shrink-0 lg:hidden">
+                          <Image
+                            src={business.logo}
+                            alt={`${business.name} logo`}
+                            width={36}
+                            height={36}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <h2 className="font-fraunces text-2xl sm:text-3xl lg:text-4xl font-medium text-ink-navy">
+                          {business.name}
+                        </h2>
+                      </div>
 
                       {/* One-line positioning statement */}
                       <p className="font-inter text-base sm:text-lg text-slate mb-4 font-normal leading-snug">
