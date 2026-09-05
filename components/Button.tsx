@@ -4,7 +4,7 @@ import Link from "next/link";
 interface ButtonProps {
   children: React.ReactNode;
   href?: string;
-  variant?: "primary" | "secondary" | "secondary-dark";
+  variant?: "primary" | "secondary" | "secondary-dark" | "gold";
   size?: "sm" | "md" | "lg";
   className?: string;
   onClick?: () => void;
@@ -40,6 +40,9 @@ export default function Button({
     // Secondary on Dark background: transparent, 1px Gold border, Ivory text; hover fills antique-gold 10%
     "secondary-dark":
       "bg-transparent text-paper-ivory border border-antique-gold hover:bg-antique-gold/10 transition-colors duration-200",
+    // Gold Fill: Antique Gold fill, Ink Navy text, luxury aesthetic like Screenshot 2
+    gold:
+      "bg-antique-gold text-ink-navy font-semibold hover:bg-antique-gold/90 shadow-lg border border-antique-gold transition-all duration-200",
   };
 
   const baseStyles =

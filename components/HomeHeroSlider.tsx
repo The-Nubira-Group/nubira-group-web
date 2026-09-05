@@ -123,7 +123,7 @@ export default function HomeHeroSlider() {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
-            <Button href="#our-businesses" variant="primary-gold" size="lg">
+            <Button href="#our-businesses" variant="gold" size="lg">
               Explore our businesses
             </Button>
 
