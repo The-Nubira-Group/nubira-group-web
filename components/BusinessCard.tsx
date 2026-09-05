@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ExternalLink } from "lucide-react";
@@ -16,6 +18,7 @@ export default function BusinessCard({
   className = "",
 }: BusinessCardProps) {
   const isWide = variant === "wide";
+  const [imageError, setImageError] = useState(false);
 
   return (
     <div
@@ -30,14 +33,20 @@ export default function BusinessCard({
         style={{ backgroundColor: business.brandColor }}
       />
 
-      <div className={`p-6 lg:p-8 flex flex-col h-full ${isWide ? "lg:flex-row lg:gap-8" : ""}`}>
+      <div
+        className={`p-6 lg:p-8 flex flex-col h-full ${
+          isWide ? "lg:flex-row lg:gap-8" : ""
+        }`}
+      >
         {/* Screenshot Image Container */}
         <div
           className={`relative bg-ink-navy/5 border border-hairline overflow-hidden rounded-sharp mb-6 shrink-0 transition-colors group-hover:border-antique-gold/40 ${
-            isWide ? "w-full lg:w-1/2 h-52 lg:h-full lg:mb-0 min-h-[180px]" : "w-full h-48 sm:h-52"
+            isWide
+              ? "w-full lg:w-1/2 h-52 lg:h-full lg:mb-0 min-h-[180px]"
+              : "w-full h-48 sm:h-52"
           }`}
         >
-          {business.screenshot ? (
+          {business.screenshot && !imageError ? (
             <div className="relative w-full h-full">
               <Image
                 src={business.screenshot}
@@ -45,20 +54,19 @@ export default function BusinessCard({
                 fill
                 className="object-cover grayscale contrast-125 brightness-95 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-300"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = "none";
-                }}
+                onError={() => setImageError(true)}
               />
               {/* Subtle Navy 4% overlay */}
               <div className="absolute inset-0 bg-ink-navy/4 pointer-events-none mix-blend-multiply group-hover:opacity-0 transition-opacity" />
             </div>
           ) : null}
-          {/* Subtle Fallback Monogram */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center pointer-events-none -z-10">
-            <span className="font-fraunces text-2xl text-slate/30 uppercase tracking-widest font-medium">
+
+          {/* Fallback Monogram when image is missing or loading */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center pointer-events-none">
+            <span className="font-fraunces text-2xl text-slate/40 uppercase tracking-widest font-medium">
               {business.name}
             </span>
-            <span className="font-mono text-[11px] text-slate/40 mt-1 uppercase tracking-wider">
+            <span className="font-mono text-[11px] text-slate/50 mt-1 uppercase tracking-wider">
               {business.categoryShort}
             </span>
           </div>

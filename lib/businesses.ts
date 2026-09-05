@@ -58,7 +58,7 @@ export const BUSINESSES: Business[] = [
     ],
     externalUrl: "https://anga9.com",
     brandColor: "#2563EB",
-    screenshot: "/assets/anga9.png",
+    screenshot: "/assets/anga9.svg",
     screenshotCaption: "Anga9.com — homepage, festive collection banner",
   },
   {
@@ -94,7 +94,7 @@ export const BUSINESSES: Business[] = [
     ],
     externalUrl: "https://riksho.com",
     brandColor: "#3B3FE0",
-    screenshot: "/assets/riksho.png",
+    screenshot: "/assets/riksho.svg",
     screenshotCaption: "Riksho.com — homepage",
   },
   {
@@ -131,7 +131,7 @@ export const BUSINESSES: Business[] = [
     ],
     externalUrl: "https://zigza.in",
     brandColor: "#3E2C63",
-    screenshot: "/assets/zigza.png",
+    screenshot: "/assets/zigza.svg",
     screenshotCaption: "Zigza.in — live factory dashboard and metrics",
   },
   {
@@ -167,7 +167,7 @@ export const BUSINESSES: Business[] = [
     ],
     externalUrl: "https://gargisaha.com",
     brandColor: "#7A1F1F",
-    screenshot: "/assets/gargi.png",
+    screenshot: "/assets/gargi.svg",
     screenshotCaption: "Gargisaha.com — heritage handloom showcase",
   },
   {
@@ -208,7 +208,7 @@ export const BUSINESSES: Business[] = [
     },
     externalUrl: "https://nubiracreation.com",
     brandColor: "#18181B",
-    screenshot: "/assets/nubira-creation.png",
+    screenshot: "/assets/nubira-creation.svg",
     screenshotCaption: "Nubiracreation.com — apparel manufacturing facility",
   },
 ];
