@@ -16,6 +16,8 @@ export interface Business {
   targetAudience: TargetAudience[];
   externalUrl: string;
   brandColor: string;
+  logo: string;
+  banner: string;
   screenshot: string;
   screenshotCaption: string;
   subClarification?: string;
@@ -24,6 +26,60 @@ export interface Business {
     href: string;
   };
 }
+
+export interface HeroBanner {
+  id: string;
+  industry: string;
+  sectorTag: string;
+  tagline: string;
+  subhead: string;
+  image: string;
+  targetBusinessSlug: string;
+  accentColor: string;
+}
+
+export const HERO_BANNERS: HeroBanner[] = [
+  {
+    id: "b2b-commerce",
+    industry: "Wholesale Trade & B2B Commerce",
+    sectorTag: "Commerce & Distribution",
+    tagline: "Powering India's Wholesale Backbone",
+    subhead: "Connecting verified wholesalers, manufacturers, and retailers for direct bulk commerce across 10,000+ pin codes.",
+    image: "/banners/banner_b2b_commerce.webp",
+    targetBusinessSlug: "anga9",
+    accentColor: "#2563EB",
+  },
+  {
+    id: "urban-mobility",
+    industry: "Urban Mobility & Fleet Transit",
+    sectorTag: "Mobility & Clean Transit",
+    tagline: "Connecting Millions of Daily Commutes",
+    subhead: "Zero-commission electric mobility for auto-rickshaws and urban cabs, empowering drivers and passengers across India.",
+    image: "/banners/banner_urban_mobility.webp",
+    targetBusinessSlug: "riksho",
+    accentColor: "#3B3FE0",
+  },
+  {
+    id: "manufacturing-tech",
+    industry: "Smart Apparel Manufacturing & MES",
+    sectorTag: "Industrial Technology",
+    tagline: "Digitizing Industrial Shopfloors",
+    subhead: "Real-time MES software connecting inward fabric lots, cutting tables, 3-stage QC tracking, and buyer dispatch.",
+    image: "/banners/banner_smart_manufacturing.webp",
+    targetBusinessSlug: "zigza",
+    accentColor: "#3E2C63",
+  },
+  {
+    id: "heritage-craft",
+    industry: "Artisanal Handloom & Luxury Craft",
+    sectorTag: "Heritage Luxury & Atelier",
+    tagline: "Sustaining Centuries of Indian Craft",
+    subhead: "Master handloom weavers creating bespoke sarees and heirloom couture, shipped nationally and internationally.",
+    image: "/banners/banner_heritage_craft.webp",
+    targetBusinessSlug: "house-of-gargi",
+    accentColor: "#7A1F1F",
+  },
+];
 
 export const BUSINESSES: Business[] = [
   {
@@ -35,7 +91,7 @@ export const BUSINESSES: Business[] = [
     tagline: "B2B wholesale, without the middleman markup.",
     shortDescription: "A bulk buy-and-sell marketplace connecting wholesalers and retailers directly.",
     fullDescription:
-      "Anga9 connects wholesalers and retailers directly for bulk buying and selling across categories, with built-in delivery and seller storefronts without the middleman markup.",
+      "Anga9 is an integrated digital marketplace connecting verified wholesalers, manufacturers, and retailers for direct bulk commerce across 10,000+ pin codes, featuring end-to-end freight, digital storefronts, and automated escrow.",
     features: [
       "Bulk buy & sell listings across categories",
       "Direct wholesaler-to-retailer transactions",
@@ -58,8 +114,10 @@ export const BUSINESSES: Business[] = [
     ],
     externalUrl: "https://anga9.com",
     brandColor: "#2563EB",
-    screenshot: "/assets/anga9.svg",
-    screenshotCaption: "Anga9.com — homepage, festive collection banner",
+    logo: "/logos/anga9.png",
+    banner: "/banners/banner_b2b_commerce.webp",
+    screenshot: "/banners/banner_b2b_commerce.webp",
+    screenshotCaption: "Anga9 — B2B wholesale marketplace, trade network",
   },
   {
     id: "riksho",
@@ -94,8 +152,10 @@ export const BUSINESSES: Business[] = [
     ],
     externalUrl: "https://riksho.com",
     brandColor: "#3B3FE0",
-    screenshot: "/assets/riksho.svg",
-    screenshotCaption: "Riksho.com — homepage",
+    logo: "/logos/app_riksho_logo.png",
+    banner: "/banners/banner_urban_mobility.webp",
+    screenshot: "/banners/banner_urban_mobility.webp",
+    screenshotCaption: "Riksho — urban mobility, zero-commission transit",
   },
   {
     id: "zigza",
@@ -131,8 +191,10 @@ export const BUSINESSES: Business[] = [
     ],
     externalUrl: "https://zigza.in",
     brandColor: "#3E2C63",
-    screenshot: "/assets/zigza.svg",
-    screenshotCaption: "Zigza.in — live factory dashboard and metrics",
+    logo: "/logos/zigza.png",
+    banner: "/banners/banner_smart_manufacturing.webp",
+    screenshot: "/banners/banner_smart_manufacturing.webp",
+    screenshotCaption: "Zigza — manufacturing OS, digital factory floor",
   },
   {
     id: "house-of-gargi",
@@ -167,8 +229,10 @@ export const BUSINESSES: Business[] = [
     ],
     externalUrl: "https://gargisaha.com",
     brandColor: "#7A1F1F",
-    screenshot: "/assets/gargi.svg",
-    screenshotCaption: "Gargisaha.com — heritage handloom showcase",
+    logo: "/logos/house_of_gargi.png",
+    banner: "/banners/banner_heritage_craft.webp",
+    screenshot: "/banners/banner_heritage_craft.webp",
+    screenshotCaption: "House of Gargi — handcrafted heritage sarees and couture",
   },
   {
     id: "nubira-creation",
@@ -208,8 +272,10 @@ export const BUSINESSES: Business[] = [
     },
     externalUrl: "https://nubiracreation.com",
     brandColor: "#18181B",
-    screenshot: "/assets/nubira-creation.svg",
-    screenshotCaption: "Nubiracreation.com — apparel manufacturing facility",
+    logo: "/logos/nubiracreation.png",
+    banner: "/banners/banner_smart_manufacturing.webp",
+    screenshot: "/banners/banner_smart_manufacturing.webp",
+    screenshotCaption: "Nubira Creation — apparel manufacturing facility",
   },
 ];
 
